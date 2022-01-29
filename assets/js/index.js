@@ -1,3 +1,7 @@
+function aleatorio(){
+
+
+}
 $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
@@ -6,7 +10,7 @@ $(document).ready(function(){
 
         let validacion = validarInput(input);
         if (validacion == true){
-            console.log("correcto");
+            
             respuestaInput(input);
         } 
         else{
@@ -38,6 +42,7 @@ $(document).ready(function(){
             dataType:"json",
             async: true,
             success: function(data){
+                //Guardar variables a mostrar en CardHeroe
                 let imagen = data.image.url;
                 let nombre = data.name;
                 let conexiones = data.connections['group-affiliation'];
@@ -47,63 +52,74 @@ $(document).ready(function(){
                 let altura = data.appearance.height[1];
                 let peso = data.appearance.weight[1];
                 let alianzas = data.biography.aliases.join(", ");
+                console.log(imagen)
 
-                console.log(data)
+                //Crear elemento DOM .hero__card para pintar información del héroe
                 $(".hero__card").html(`
                 <div class="hero__img"><img src="${imagen}"></div>
                 <div class="hero__info">
-                    <p>Nombre: <span>${nombre}</span></p>
-                    <p>Conexiones: <span>${conexiones}</span></p>
-                    <p>Publicado por: <span>${publicado}</span></p>
-                    <p>Ocupación: <span>${ocupacion}</span></p>
-                    <p>Aparición: <span>${aparicion}</span></p>
-                    <p>Altura: <span>${altura}</span></p>
-                    <p>Peso: <span>${peso}</span></p>
-                    <p>Alianzas: <span>${alianzas}</span></p>
+                    <p class="hero__caract">Nombre: <span>${nombre}</span></p>
+                    <p class="hero__caract">Conexiones: <span>${conexiones}</span></p>
+                    <p class="hero__caract">Publicado por: <span>${publicado}</span></p>
+                    <p class="hero__caract">Ocupación: <span>${ocupacion}</span></p>
+                    <p class="hero__caract">Aparición: <span>${aparicion}</span></p>
+                    <p class="hero__caract">Altura: <span>${altura}</span></p>
+                    <p class="hero__caract">Peso: <span>${peso}</span></p>
+                    <p class="hero__caract">Alianzas: <span>${alianzas}</span></p>
                 </div>
                 </div>
                 `);
-
-                console.log(data.powerstats)
-                console.log(data.powerstats.combat)
-                console.log(data.powerstats.durability)
-                console.log(data.powerstats.intelligence)
-                console.log(data.powerstats.power)
-                console.log(data.powerstats.speed)
-                console.log(data.powerstats.strength)
+                //Buscar si existen estadísticas de poder
+                let dps = data.powerstats;
+                if (dps.combat == "null" && dps.durability == "null" && dps.intelligence == "null" && dps.power == "null" && dps.speed == "null" && dps.strength == "null"){
+                    $("#chartContainer").html("No hay estadísticas de poder del héroe")
+                }
+                else{
+                    //Ejecutar función de estadístifcas, si es que las hay
+                    estadisticas()
+                }
                 
-                let chart = new CanvasJS.Chart("chartContainer", {
-                    theme: "light1", 
-                    exportEnabled: true,
-                    animationEnabled: true,
-                    title: {
-                        text: "Desktop Browser Market Share in 2016"
-                    },
-                    data: [{
-                        type: "pie",
-                        startAngle: 25,
-                        toolTipContent: "<b>{label}</b>: {y}%",
-                        showInLegend: "true",
-                        legendText: "{label}",
-                        indexLabelFontSize: 16,
-                        indexLabel: "{label} - {y}%",
-                        dataPoints: [
-                            { y: 51.08, label: "Chrome" },
-                            { y: 27.34, label: "Internet Explorer" },
-                            { y: 10.62, label: "Firefox" },
-                            { y: 5.02, label: "Microsoft Edge" },
-                            { y: 4.07, label: "Safari" },
-                            { y: 1.22, label: "Opera" },
-                            { y: 200, label: "Others" }
-                        ]
-                    }]
-                });
-                chart.render();
-                    
-                
+                function estadisticas(){
+                    //Rescatar estadísticas
+                    let combate = dps.combat;
+                    let durabilidad = dps.durability;
+                    let inteligencia = dps.intelligence;
+                    let poder = dps.power;
+                    let velocidad = dps.speed;
+                    let fuerza = dps.strength;
+                    //Pintar estadísticas con CANVASJS
+                    let chart = new CanvasJS.Chart("chartContainer", {
+                        //theme: "transparent",
+                        animationDuration: 1000,
+                        interactivityEnabled: true,
+                        backgroundColor: "transparent",
+                        exportEnabled: false,
+                        animationEnabled: true,
+                        title: {
+                            text: `Estadísticas de poder`
+                        },
+                        data: [{
+                            cursor: "pointer",
+                            type: "pie",
+                            startAngle: 25,
+                            toolTipContent: "<b>{label}</b>: {y}%",
+                            showInLegend: "true",
+                            legendText: "{label}",
+                            indexLabelFontSize: 16,
+                            indexLabel: "{label} - {y} ptos",
+                            dataPoints: [
+                                { y: combate, label: "Combate" },
+                                { y: durabilidad, label: "Durabilidad" },
+                                { y: inteligencia, label: "Inteligencia" },
+                                { y: poder, label: "Poder" },
+                                { y: velocidad, label: "Velocidad" },
+                                { y: fuerza, label: "Fuerza" },
+                            ]
+                        }]
+                    });
+                    chart.render();
+                };    
             }
-
         });
     };
-
 });

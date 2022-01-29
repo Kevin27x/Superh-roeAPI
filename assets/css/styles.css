@@ -1,11 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: burlywood;
+    font-family: 'Comic Neue', cursive;
+}
 .div__container{
     display: flex;
+    justify-content: space-between;
+    outline: 1px solid black;
+    background-color: blue;
+    width: 90%;
+    margin: auto;
+}
+.hero__form{
+    background-color: blueviolet;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 10vh 4%;
     justify-content: center;
 }
 
+.hero__form h1{
+
+}
 .hero__container{
-    width: 60%;
-    height: 150vh;
+    width: 70%;
+    height: 100vh;
     
 }
 
@@ -13,6 +39,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 50vh;
+    background-color: chartreuse;
 }
 div{
     outline: 1px solid black;
@@ -22,4 +51,9 @@ div{
     width: 200px;
     height: 300px;
 
+}
+#chartContainer{
+    width: 100%;
+    height: 50vh;
+    background-color: cadetblue;
 }
