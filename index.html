@@ -13,13 +13,34 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form>
-        <h1>Super Heroes</h1>
-        <h3>Elige el superhéroe</h3>
-        <input type="text">
-        <button type="submit">Buscar</button>
-    </form>
+    <div class="div__container">
+        <form class="hero__form">
+            <h1>Super Heroes</h1>
+            <h3>Elige el superhéroe</h3>
+            <input type="text" id="input">
+            <button type="submit" id="s">Buscar</button>
+        </form>
+        <div class="hero__container">
+            <div class="hero__card"></div>
+                <!-- <div class="hero__img"></div>
+                <div class="hero__info">
+                    <p>Nombre: <span></span></p>
+                    <p>Conexiones: <span></span></p>
+                    <p>Publicado por: <span></span></p>
+                    <p>Ocupación: <span></span></p>
+                    <p>Aparición: <span></span></p>
+                    <p>Altura: <span></span></p>
+                    <p>Peso: <span></span></p>
+                    <p>Alianzas: <span></span></p>
+                </div>
+            </div> -->
+            <div id="chartContainer" style="height: 300px; width: 100%; background-color: aqua;"></div>
+        </div>
+    </div>
+    <!--CDN CANVAS-->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <!-- Javascript -->
     <script src="./assets/js/index.js"></script>
+
 </body>
 </html>

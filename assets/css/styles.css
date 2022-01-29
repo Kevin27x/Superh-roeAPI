@@ -1,0 +1,25 @@
+.div__container{
+    display: flex;
+    justify-content: center;
+}
+
+.hero__container{
+    width: 60%;
+    height: 150vh;
+    
+}
+
+.hero__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div{
+    outline: 1px solid black;
+}
+
+.hero__img img{
+    width: 200px;
+    height: 300px;
+
+}
