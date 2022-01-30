@@ -89,15 +89,23 @@ $(document).ready(function(){
                     //Pintar estadísticas con CANVASJS
                     let chart = new CanvasJS.Chart("chartContainer", {
                         //theme: "transparent",
+                        
+                        theme: "light1",
                         animationDuration: 1000,
                         interactivityEnabled: true,
                         backgroundColor: "transparent",
                         exportEnabled: false,
                         animationEnabled: true,
                         title: {
-                            text: `Estadísticas de poder`
+                            text: `Estadísticas de poder`,
+                            fontColor: "white",
+                        },
+                        legend: {
+                            fontColor: "white"
                         },
                         data: [{
+                            indexLabelFontColor: "white",
+                            indexLabelLineColor: "blue",
                             cursor: "pointer",
                             type: "pie",
                             startAngle: 25,

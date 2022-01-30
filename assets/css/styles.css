@@ -10,6 +10,19 @@ body {
     font-family: 'Comic Neue', cursive;
     color: #fff;
 }
+
+.pollo__img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+    position: fixed;
+    bottom: 0;
+    left: 100px;
+    animation-name: aparecerPollo;
+    animation-duration: 2s;
+}
+
 /*CONTIENE AL FORMULARIO Y SECCIÓN IMAGENES*/
 .div__container{
     display: flex;
@@ -126,4 +139,63 @@ body {
 }
 .hero__img{
     margin-left: 3%;
+}
+
+@keyframes aparecerPollo {
+    0% {
+        bottom: -280px;
+    }
+    
+    68%{
+        left: 97px;
+    }
+    70%{
+        left: 100px;
+    }
+    72%{
+        left: 97px;
+    }
+    74%{
+        left: 100px;
+    }
+    76%{
+        left: 97px;
+    }
+    78%{
+        left: 100px;
+    }
+    80%{
+        left: 95px;
+    }
+    82%{
+        left: 100px;
+    }
+    84%{
+        left: 95px;
+    }
+    86%{
+        left: 100px;
+    }
+    88%{
+        left: 95px;
+    }
+    90%{
+        left: 100px;
+    }
+    92%{
+        left: 94px;
+    }
+    94%{
+        left: 100px;
+    }
+    96%{
+        left: 94px;
+    }
+    98%{
+        left: 100px;
+    }
+    100% {
+        left: 94px;
+        bottom: 0px;
+    }
 }
