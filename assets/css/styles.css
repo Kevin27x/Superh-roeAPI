@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: burlywood;
+    background-image: linear-gradient(rgb(33, 33, 126), rgb(128, 39, 39));
     font-family: 'Comic Neue', cursive;
     color: #fff;
 }
@@ -14,14 +14,14 @@ body {
 .div__container{
     display: flex;
     justify-content: space-between;
-    background-color: blue;
+    
     width: 90%;
     margin: auto;
     height: 100VH;
 }
 /*ESTILOS FORMULARIO*/
 .hero__form{
-    background-color: blueviolet;
+    
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -103,7 +103,7 @@ body {
 }
 
 #chartContainer{
-    background-color: green;
+    
     width: 100%;
     height: 50vh;
     

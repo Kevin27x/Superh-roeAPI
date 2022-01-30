@@ -1,7 +1,4 @@
-function aleatorio(){
-
-
-}
+// Formulario y respuesta API con JQUERY
 $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
@@ -60,7 +57,7 @@ $(document).ready(function(){
                 <div class="hero__img"><img src="${imagen}"></div>
                 <div class="hero__info">
                     <p class="hero__caract">Nombre: <span>${nombre}</span></p>
-                    <p class="hero__caract">Conexiones: <span maxlength=5>${conexiones}</span></p>
+                    <p class="hero__caract">Conexiones: <span>${conexiones}</span></p>
                     <p class="hero__caract">Publicado por: <span>${publicado}</span></p>
                     <p class="hero__caract">Ocupación: <span>${ocupacion}</span></p>
                     <p class="hero__caract">Aparición: <span>${aparicion}</span></p>
@@ -125,3 +122,45 @@ $(document).ready(function(){
         });
     };
 });
+//JS NORMAL
+//Funcion de Números aleatorios
+function aleatorio(){
+    let numeroAleatorio = Math.ceil(Math.random() * 731);
+    return(numeroAleatorio)
+}
+//Botón resetear cartas
+let botonAleatorio = document.getElementById("resetear");
+botonAleatorio.addEventListener("click", resetearCartas);
+
+//Request
+function resetearCartas(){
+    //Realiza 6 peticiones para refrescar la sección de cartas 
+    for(let i = 1; i < 7; i++){
+        //Se llama a la funcion "aleatorio" para asignar un nuevo número. entre el 1 y 732
+        let nAleatorio = aleatorio();
+        //Cambia la url según el numero aleatorio
+        let url= `https://www.superheroapi.com/api.php/10227714366907498/${nAleatorio}`;
+        //crear objeto
+        const api = new XMLHttpRequest();
+        //métodos objeto XMLHTTP
+        api.open("GET", url, true);
+
+        api.send();
+
+        api.onreadystatechange = function (){
+            //comprobar estado 200 y 4
+            if (this.status == 200 && this.readyState == 4){
+                //Transformar string a objeto
+                let datos = JSON.parse(this.responseText);
+                let imagen = datos.image.url;
+                let article = document.getElementById(`article${i}`);
+                article.innerHTML = "";
+                article.innerHTML = `<img src="${imagen}" class="img">`;
+
+            };
+        };
+    };
+};
+
+    
+
