@@ -2,6 +2,7 @@
 $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
+        document.getElementById("soloNumeros").innerHTML = ""
 
         let input = $("#input").val();
 
@@ -11,7 +12,8 @@ $(document).ready(function(){
             respuestaInput(input);
         } 
         else{
-            console.log("solo numeros");
+            document.getElementById("soloNumeros").innerHTML = "Ingrese solo números"
+           
         }  
     });
 
