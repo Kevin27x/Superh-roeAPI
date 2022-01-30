@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: linear-gradient(rgba(33, 33, 126, 0.3), rgb(128, 39, 39,0.3)),url(../img/erik-mclean-LSPUdV6IWsY-unsplash.jpg);
+    background-image: linear-gradient(rgba(20, 20, 71, 0.3), rgba(59, 16, 16, 0.3)),url(../img/erik-mclean-LSPUdV6IWsY-unsplash.jpg);
     background-position: center;
     background-size: cover;
     font-family: 'Comic Neue', cursive;
@@ -23,7 +23,7 @@ body {
     bottom: 0;
     left: 100px;
     animation-name: aparecerPollo;
-    animation-duration: 2s;
+    animation-duration: 3s;
 }
 
 /*CONTIENE AL FORMULARIO Y SECCIÓN IMAGENES*/
@@ -158,11 +158,31 @@ body {
     border-radius: 5px;
 
 }
+#superman{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    position: fixed;
+    animation-name: supermanVolando;
+    animation-duration: 2s;
+    z-index: 2;
+}
 @keyframes aparecerPollo {
     0% {
         bottom: -280px;
     }
-    
+    60%{
+        left: 97px;
+    }
+    62%{
+        left: 100px;
+    }
+    64%{
+        left: 97px;
+    }
+    66%{
+        left: 100px;
+    }
     68%{
         left: 97px;
     }
@@ -216,3 +236,13 @@ body {
         bottom: 0px;
     }
 }
+@keyframes supermanVolando{
+    0%{
+        right: -100px;
+        bottom: -300px;
+    }
+    100%{
+        right: 900px;
+        bottom: 1000px;
+    }
+} 
