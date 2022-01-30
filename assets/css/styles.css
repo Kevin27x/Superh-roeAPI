@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: linear-gradient(rgba(20, 20, 71, 0.3), rgba(59, 16, 16, 0.3)),url(../img/erik-mclean-LSPUdV6IWsY-unsplash.jpg);
+    background-image: linear-gradient(rgba(13, 13, 49, 0.5), rgba(34, 8, 8, 0.5)),url(../img/erik-mclean-LSPUdV6IWsY-unsplash.jpg);
     background-position: center;
     background-size: cover;
     font-family: 'Comic Neue', cursive;
