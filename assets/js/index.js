@@ -55,11 +55,12 @@ $(document).ready(function(){
                 console.log(imagen)
 
                 //Crear elemento DOM .hero__card para pintar información del héroe
+                $(".hero__card").html("");
                 $(".hero__card").html(`
                 <div class="hero__img"><img src="${imagen}"></div>
                 <div class="hero__info">
                     <p class="hero__caract">Nombre: <span>${nombre}</span></p>
-                    <p class="hero__caract">Conexiones: <span>${conexiones}</span></p>
+                    <p class="hero__caract">Conexiones: <span maxlength=5>${conexiones}</span></p>
                     <p class="hero__caract">Publicado por: <span>${publicado}</span></p>
                     <p class="hero__caract">Ocupación: <span>${ocupacion}</span></p>
                     <p class="hero__caract">Aparición: <span>${aparicion}</span></p>
@@ -81,6 +82,7 @@ $(document).ready(function(){
                 
                 function estadisticas(){
                     //Rescatar estadísticas
+                    $("#chartContainer").html("");
                     let combate = dps.combat;
                     let durabilidad = dps.durability;
                     let inteligencia = dps.intelligence;
