@@ -19,17 +19,18 @@
             <h1>Buscador de SUPERHÉROES</h1>
             <h4>Ingresa un número del 1 al 732 y visualiza las características, habilidades e imagen de tus superhéroes favoritos</h4>
             <input type="text" id="input">
-            <button type="submit" id="s">Buscar</button>
+            <button type="submit" id="submit">Buscar</button>
             <p id="soloNumeros"></p>
 
         </form>
         <div class="hero__container">
-            <div class="hero__card">
+            <div class="hero__card" id="cardContainer">
                 <div class="container__cards">
                     <article id="article1"><img class="img" src="./assets/img/1.jpg" alt="img"></article>
                     <article id="article2"><img class="img" src="./assets/img/2.jpg" alt="img"></article>
                     <article id="article3"><img class="img" src="./assets/img/3.jpg" alt="img"></article>
                 </div>
+                
             </div>
             <div id="chartContainer" >
                 <div class="container__cards">
@@ -37,6 +38,7 @@
                     <article id="article5"><img class="img" src="./assets/img/5.jpg" alt="img"></article>
                     <article id="article6"><img class="img" src="./assets/img/6.jpg" alt="img"></article>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -47,6 +49,6 @@
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <!-- Javascript -->
     <script src="./assets/js/index.js"></script>
-
+    <script src="assets/js/plugins.js"></script>
 </body>
 </html>

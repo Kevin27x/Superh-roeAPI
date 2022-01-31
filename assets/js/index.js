@@ -2,7 +2,7 @@
 $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
-        document.getElementById("soloNumeros").innerHTML = ""
+        document.getElementById("soloNumeros").innerHTML = "";
 
         let input = $("#input").val();
 
@@ -107,7 +107,7 @@ $(document).ready(function(){
                         },
                         data: [{
                             indexLabelFontColor: "white",
-                            indexLabelLineColor: "blue",
+                            indexLabelLineColor: "white",
                             cursor: "pointer",
                             type: "pie",
                             startAngle: 25,
@@ -132,7 +132,11 @@ $(document).ready(function(){
         });
     };
 });
+
+
 //JS NORMAL
+
+
 //Funcion de Números aleatorios
 function aleatorio(){
     let numeroAleatorio = Math.ceil(Math.random() * 731);
@@ -144,7 +148,23 @@ botonAleatorio.addEventListener("click", resetearCartas);
 
 //Request
 function resetearCartas(){
+    //Limpiar ambos contenedores de img y volver a crear div-articles, porq en la función respuesta input se elimina el contenido 
+    let cardContainer = document.getElementById("cardContainer");
+    let chart = document.getElementById("chartContainer");
+    cardContainer.textContent = "";
+    chart.textContent = "";
+    cardContainer.innerHTML = `<div class="container__cards">
+    <article id="article1"></article>
+    <article id="article2"></article>
+    <article id="article3"></article>
+    </div>`;
+    chart.innerHTML = `<div class="container__cards">
+    <article id="article4"></article>
+    <article id="article5"></article>
+    <article id="article6"></article>
+    </div>`
     //Realiza 6 peticiones para refrescar la sección de cartas 
+    
     for(let i = 1; i < 7; i++){
         //Se llama a la funcion "aleatorio" para asignar un nuevo número. entre el 1 y 732
         let nAleatorio = aleatorio();
@@ -171,6 +191,16 @@ function resetearCartas(){
         };
     };
 };
+//PLUGINS
+$(document).ready(function(){
+    $("#submit").click((function(){
+        $("#submit").parpadear();
+    }));
+    $("#resetear").click((function(){
+        $("#resetear").parpadear();
+    }));
+    
 
+});
     
 
