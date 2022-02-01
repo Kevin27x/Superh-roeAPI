@@ -246,3 +246,58 @@ body {
         bottom: 1000px;
     }
 } 
+
+@media (max-width: 1270px){
+    .div__container{
+        flex-direction: column;
+    }
+    .hero__form,.hero__container, .chartContainer, .hero__form input, #submit{
+        width: 100%;
+    }
+    .pollo__img{
+        display: none;
+    }
+}
+@media (max-width: 890px){
+    .div__container{
+        height: max-content;
+    }
+    
+    .hero__container, .chartContainer, #cardContainer{
+        height: max-content;
+    }
+    
+    #resetear{
+        left: 70%;
+    }
+    .hero__info,.hero__card{
+        height: max-content;
+    }
+    .container__cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        height: max-content;
+        text-align: center;
+        
+    }
+    .img {
+        margin-bottom: 2vh;
+    }
+
+}
+@media (max-width: 800px){
+    #article3, #article6{
+        display: none;
+    }
+}
+@media (max-width: 700px){
+    .hero__card{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 533px){
+    #article5{
+        display: none;
+    }
+}
